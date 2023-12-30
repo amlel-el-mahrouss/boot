@@ -1,0 +1,57 @@
+# This file is Work In Progress
+# It is used to describe the MPSYS I memory map.
+# Copyright Amlal El Mahrouss
+
+/:
+{
+    # Platform Video Controller
+    pvc/:
+    {
+        .
+    }
+    # External Interrupt Controller
+    eic/:
+    {
+        .
+    }
+    # DRAM
+    dram/:
+    {
+        .
+    }
+    # Power manager
+    powman/:
+    {
+        .
+    }
+    # Master disk (EPM formatted)
+    disk/:
+    {
+        .
+
+        0/:
+        {
+            .
+        }
+        1/:
+        {
+            .
+        }
+        2/:
+        {
+            .
+        }
+    }
+    # Network Controller
+    net/:
+    {
+        .
+    }
+
+    # Machine dependent configuration
+    {
+        *
+    }
+}
+
+ALIGN(4096);

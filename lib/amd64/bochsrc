@@ -1,0 +1,6 @@
+romimage: file=award.rom, address=0xffff0000
+vgaromimage: file=vgabios-lgpl.rom.noignore
+
+megs: 32
+floppya: 1_44="boot-xpm.rom", status=inserted
+boot: floppy

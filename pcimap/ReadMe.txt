@@ -1,0 +1,1 @@
+The pcimap directory takes care of defining a layout for a specific computer.
