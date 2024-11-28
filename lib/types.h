@@ -9,6 +9,10 @@
 
 #pragma once
 
+#ifndef __GNUC__
+#error !!! use gcc/clang !!!
+#endif
+
 typedef __UINTPTR_TYPE__ uintptr_t;
 
 typedef unsigned long long int uint64_t;
@@ -45,6 +49,3 @@ typedef ptrtype_t size_t;
 #define yes 1
 
 #define boolean char
-
-void panic(const char* reason);
-void puts(const char* text);

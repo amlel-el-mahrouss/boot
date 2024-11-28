@@ -10,7 +10,7 @@
 #ifndef __MP_MEMORY_MAP_H__
 #define __MP_MEMORY_MAP_H__
 
-struct mp_hw_memmap
+struct mpboot_hw_memmap
 {
     __UINTPTR_TYPE__ base_ptr;
     __SIZE_TYPE__    length_ptr;
@@ -26,7 +26,7 @@ struct mp_hw_memmap
 
 #define HW_MEMORY_MAP_LEN 15
 
-extern struct mp_hw_memmap g_memmap[HW_MEMORY_MAP_LEN];
+extern struct mpboot_hw_memmap g_memmap[HW_MEMORY_MAP_LEN];
 
 #ifdef __COMPILE_RISCV__
 

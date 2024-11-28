@@ -9,10 +9,10 @@
 
 .balign 4
 .global __start
+.extern __mpboot_stack_end
  
 __start
-	mv sp, __mp_stack_end
-
-	/* don't care about page_zero, it's gonna be a raw binary */
-
-    b mp_start
+	mv sp, __mpboot_stack_end
+    b mpboot_start
+	
+	/* Jump to cold reset. */

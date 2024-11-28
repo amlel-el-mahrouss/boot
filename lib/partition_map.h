@@ -12,19 +12,27 @@
 
 #include <lib/types.h>
 
-#define UUID_LEN 37
+/**
+ * 
+ * MBS, wrapper over mp's disklabels.
+ * 
+ */
+
+#define MBS_NAME_LEN 32
+#define MBS_MAG_LEN 4
+#define MBS_UUID_LEN 37
 
 /* the first 512 > x > 1024 bytes of a disk contains this headers. */
 
 /**
- * @brief The EPM bootloader block.
+ * @brief The MP Boot Sector bootloader block.
  * 
  */
 struct boot_block
 {
-	char magic[4];
-    char name[32];
-    char uuid[UUID_LEN];
+	char magic[MBS_MAG_LEN];
+    char name[MBS_NAME_LEN];
+    char uuid[MBS_UUID_LEN];
     int version;
     long long int num_blocks;
     long long int sector_sz;
@@ -33,12 +41,12 @@ struct boot_block
 };
 
 /**
- * @brief The EPM partition block.
+ * @brief The MP Boot Sector partition block.
  * 
  */
 struct part_block
 {
-    char name[32];
+    char name[MBS_NAME_LEN];
     int magic;
     long long int sector_end;
     long long int sector_sz;
@@ -52,29 +60,26 @@ struct part_block
 typedef struct part_block part_block_t;
 typedef struct boot_block boot_block_t;
 
-/* @brief AMD64 magic for EPM */
-#define EPM_MAGIC_X86   "EPMAM"
+/* @brief AMD64 magic for MP Boot Sector */
+#define MBS_MAG   "  MBS"
 
-/* @brief RISC-V magic for EPM */
-#define EPM_MAGIC_RV    "EPMRV"
+#define MBS_MAX_BLK   (128U)
 
-/* @brief ARM magic for EPM */
-#define EPM_MAGIC_ARM   "EPMAR"
-
-#define EPM_MAX_BLKS   128
-
-#define EPM_BOOT_BLK_SZ sizeof(struct boot_block)
-#define EPM_PART_BLK_SZ sizeof(struct part_block)
+#define MBS_BOOT_BLK_SZ sizeof(struct boot_block)
+#define MBS_PART_BLK_SZ sizeof(struct part_block)
 
 //! version types.
 //! use in boot block version field.
 
 enum
 {
-    EPM_MPUNIX            = 0xcf,
-    EPM_LINUX             = 0x8f,
-    EPM_BERKELEY_SOFTWARE = 0x9f,
-    EPM_HCORE             = 0x1f,
+    MBS_MP                = 0xcf,
+    MBS_LINUX             = 0x8f,
+    MBS_BERKELEY_SOFTWARE = 0x9f,
+    MBS_HCORE             = 0x1f,
 };
+
+boolean mpboot_filesystem_exists(caddr_t fs, size_t len);
+boolean mpboot_is_mbs(caddr_t blob, size_t len);
 
 #endif // ifndef __PARTITION_MAP_H__

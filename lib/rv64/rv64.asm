@@ -8,9 +8,9 @@
 # ====================================
 
 .balign 4
-.global mp_flush_tlb
+.global mpboot_flush_tlb
 
-mp_flush_tlb:
+mpboot_flush_tlb:
     csrr satp, t0
     csrw t0, satp
 

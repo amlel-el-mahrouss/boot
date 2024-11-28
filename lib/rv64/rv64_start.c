@@ -19,20 +19,20 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-long long int __mp_hart_counter = 0UL;
+long long int __mpboot_hart_counter = 0UL;
 
 /* @brief makes a power on self test on memory, cpu, master disk and network card. */
-extern void mp_make_post(void);
+extern void mpboot_make_post(void);
 
-extern void mp_start(void)
+extern void mpboot_start(void)
 {
-    ++__mp_hart_counter;
-    mp_make_post();
+    ++__mpboot_hart_counter;
+    mpboot_make_post();
 }
 
-extern void mp_hang(void)
+extern void mpboot_hang(void)
 {
-    ++__mp_hart_counter;
+    ++__mpboot_hart_counter;
 
     while (yes) {}
 }

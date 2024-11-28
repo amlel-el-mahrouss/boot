@@ -59,7 +59,7 @@ _disk_block_lba:
 _disk_packet_end:
 
 __stuff_0:
-    db ">> MPSYS EPM ROM (C) 2023 MPSYS all rights reserved.", 0xd, 0xa, 0
+    db ">> MPSYS MP Boot Sector ROM (C) 2023 MPSYS all rights reserved.", 0xd, 0xa, 0
 
 __stuff_2:
     db ">> Booting from media...", 0xd, 0xa, 0

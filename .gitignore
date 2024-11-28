@@ -203,7 +203,7 @@ local.properties
 # Dyld Module Compile Results
 *.mod*
 *.cmd
-.tmp_versions/
+.tmpboot_versions/
 modules.order
 Module.symvers
 Mkfile.old

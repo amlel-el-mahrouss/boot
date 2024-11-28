@@ -11,7 +11,7 @@
 
 #ifdef __COMPILE_RISCV__
 
-struct mp_hw_memmap g_riscv_memmap[] = {
+struct mpboot_hw_memmap g_riscv_memmap[] = {
     [0] = { .base_ptr = 0x0, .length_ptr = 0x100, .feature_set = 0 }, // debug
     [1] = { .base_ptr = 0x100, .length_ptr = 0x11000, .feature_set = 0 }, // mrom
     [2] = { .base_ptr = 0x100000, .length_ptr  = 0x1000, .feature_set = HW_FEATURE_POWER_MANAGER }, // resr

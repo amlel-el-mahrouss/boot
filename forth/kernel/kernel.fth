@@ -3,7 +3,7 @@
 
 0 0 ." mp-boot firmware, (c) Amlal El Mahrouss" . cr draw-text-pos
 
-( * load EPM partition )
+( * load MP Boot Sector partition )
 0 1024 load-from-any-drive
 
 ( * goto interpreter if epm not found. )

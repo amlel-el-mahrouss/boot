@@ -24,7 +24,7 @@
     {
         .
     }
-    # Master disk (EPM formatted)
+    # Master disk (MP Boot Sector formatted)
     disk/:
     {
         .

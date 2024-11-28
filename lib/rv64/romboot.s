@@ -16,8 +16,8 @@
 
 .option norvc
 
-.extern mp_start
-.global mp_hart_present
+.extern mpboot_start
+.global mpboot_hart_present
 
 boot_start_proc:
 	.cfi_startproc
@@ -25,14 +25,14 @@ boot_start_proc:
 .option push
 .option norelax
 
-	la gp, mp_global_pointer
+	la gp, mpboot_global_pointer
 
 .option pop
 
-	la sp, mp_stack_end
+	la sp, mpboot_stack_end
 
-	la t5, mp_bss_start
-	la t6, mp_bss_end
+	la t5, mpboot_bss_start
+	la t6, mpboot_bss_end
 
 crt0_bss_clear:
 	sd zero, (t5)
@@ -40,17 +40,17 @@ crt0_bss_clear:
 	bgeu t5, t6, crt0_bss_clear
 
 	csrr t0, mhartid
-	beqz t0, mp_start
+	beqz t0, mpboot_start
 
-	j mp_hang
+	j mpboot_hang
 
 	.cfi_endproc
 
-mp_hang:
+mpboot_hang:
 	wfi
-	j mp_hang
+	j mpboot_hang
 
 .section .data
 .align 4
-mp_hart_present:
+mpboot_hart_present:
 	.long 0

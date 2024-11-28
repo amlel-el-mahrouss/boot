@@ -7,8 +7,8 @@
 #
 # ====================================
 
-[global mp_flush_tlb]
+[global mpboot_flush_tlb]
 
-mp_flush_tlb:
+mpboot_flush_tlb:
     invlpg
     ret

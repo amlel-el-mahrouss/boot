@@ -13,10 +13,10 @@
 // mp-boot Bits API.
 // Purpose: Bit manip helpers.
 
-#define mp_set_bit(X, O) X = (1 << O) | X
-#define mp_clear_bit(X, O) X = ~(1 << O) & X
-#define mp_toogle(X, O) X = (1 << O) ^ X
-#define mp_lsb(X) X = X & -X
-#define mp_msb(X) X = -(mp_lsb(X)) & X
+#define mpboot_set_bit(X, O) X = (1 << O) | X
+#define mpboot_clear_bit(X, O) X = ~(1 << O) & X
+#define mpboot_toogle(X, O) X = (1 << O) ^ X
+#define mpboot_lsb(X) X = X & -X
+#define mpboot_msb(X) X = -(mpboot_lsb(X)) & X
 
 #endif // ifndef __BITMANIP_H__

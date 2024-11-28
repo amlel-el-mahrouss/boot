@@ -6,7 +6,7 @@
 [org 0x0000]
 
 ; /********************************************************************************/
-; /* @brief BIOS                                                                  */
+; /* @brief BIOS, code is based on computron's BIOS to avoid starting from scatch. */
 ; /********************************************************************************/
 
 %define LEGACY_VM_PORT 0xE6
@@ -239,7 +239,7 @@ __install:
 __award_splash: db "mp-boot, Copyright Amlal El Mahrouss", 0xd, 0xa
 				db ">> Booting...", 0xd, 0xa, 0x0
 
-__award_no_xpm: db ">> Not an EPM drive.", 0xd, 0xa, 0x0
+__award_no_xpm: db ">> Not an MP Boot Sector drive.", 0xd, 0xa, 0x0
 
 __award_umipl:  db ">> Unimplemented.", 0xd, 0xa, 0x0
 

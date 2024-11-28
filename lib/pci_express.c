@@ -11,7 +11,7 @@
 #include <lib/memory_map.h>
 #include <lib/string.h>
 
-#define PCI_ROOT "/@"
+#define PCI_ROOT "/@/"
 #define PCI_TREE PCI_ROOT "pci/"
 
 static struct hw_pci_tree* g_base_tree = nil;
