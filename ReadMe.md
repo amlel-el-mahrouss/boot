@@ -1,5 +1,5 @@
 # mp-boot
-## The Multi-Platform bootloader/firmware.
+## The Multi-Platform firmware.
 <br>
 Author: Amlal El Mahrouss
 <br>
